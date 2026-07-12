@@ -1,0 +1,5 @@
+config SHIELD_NEU_TIPPEN_LEFT
+    def_bool $(shields_list_contains,neu_tippen_left)
+
+config SHIELD_NEU_TIPPEN_RIGHT
+    def_bool $(shields_list_contains,neu_tippen_right)

@@ -1,0 +1,46 @@
+// This file was generated from a template. Edit it to match your keyboard.
+// See https://zmk.dev/docs/development/hardware-integration/new-shield for more instructions.
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+    // Position order = row-major, left half first (0-27) then
+    // right half (28-55), matching the matrix transform in
+    // neu_tippen.dtsi.
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            bindings = <
+// ---- Left half ----
+&kp ESC   &kp TAB   &kp Q &kp W &kp E &kp R &kp T
+&kp DEL   &kp CAPS  &kp A &kp S &kp D &kp F &kp G
+&kp GRAVE &kp LSHFT &kp Z &kp X &kp C &kp V &kp B
+&none     &kp LCTRL &mo 1 &none &kp LGUI &kp LALT &kp SPACE
+
+// ---- Right half ----
+&kp Y     &kp U &kp I     &kp O    &kp P    &none    &kp BSPC
+&kp H     &kp J &kp K     &kp L    &kp SEMI &kp SQT  &kp RET
+&kp N     &kp M &kp COMMA &kp DOT  &kp FSLH &kp UP   &kp PSCRN
+&kp SPACE &none &none     &kp LEFT &kp DOWN &kp RIGHT &none
+            >;
+        };
+
+        fn_layer {
+            bindings = <
+// ---- Left half: F-keys, media keys on the spare column ----
+&trans       &kp F1 &kp F2 &kp F3 &kp F4  &kp F5  &kp F6
+&kp C_VOL_UP &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
+&kp C_MUTE   &trans &trans &trans &trans  &trans  &trans
+&kp C_VOL_DN &trans &trans &trans &trans  &trans  &trans
+
+// ---- Right half: numpad ----
+&trans &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS    &kp LBKT &kp RBKT
+&trans &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS     &trans   &kp KP_ENTER
+&trans &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_ASTERISK &trans   &trans
+&trans &kp KP_N0 &kp KP_DOT &kp KP_ENTER &kp KP_SLASH &trans  &trans
+            >;
+        };
+    };
+};
