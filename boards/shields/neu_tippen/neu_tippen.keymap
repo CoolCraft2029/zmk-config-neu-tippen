@@ -32,7 +32,7 @@
 // ---- Left half: F-keys, media keys on the spare column ----
 &kp ESC      &kp N1 &kp N2 &kp N3 &kp N4  &kp N5  &kp N6
 &kp C_VOL_UP &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6
-&kp C_MUTE   &kp LSHIFT  &to 0  &to 2  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2
+&kp C_MUTE   &kp LSHFT  &to 0  &to 2  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2
 &kp C_VOL_DN &none    &none    &none    &none    &none     &none
 
 // ---- Right half: numpad ----
