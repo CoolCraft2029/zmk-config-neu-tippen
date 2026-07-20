@@ -21,3 +21,5 @@ include:
     shield: neu_tippen_left
   - board: seeeduino_xiao_ble
     shield: neu_tippen_right
+  - board: seeeduino_xiao_ble
+    shield: settings_reset
