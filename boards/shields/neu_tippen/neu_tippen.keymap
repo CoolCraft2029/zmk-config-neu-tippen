@@ -6,6 +6,51 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
+    macros {
+        // Each of these: switch to that profile, then clear its bond -
+        // used as the "hold" action so the slot is ready to pair fresh.
+        bt0_clear: bt0_clear {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0>, <&bt BT_CLR>;
+        };
+        bt1_clear: bt1_clear {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1>, <&bt BT_CLR>;
+        };
+        bt2_clear: bt2_clear {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 2>, <&bt BT_CLR>;
+        };
+    };
+
+    behaviors {
+        // Tap = switch to profile. Hold (250ms) = clear that profile's bond.
+        bt0_ht: bt0_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            flavor = "tap-preferred";
+            bindings = <&bt0_clear>, <&bt BT_SEL 0>;
+        };
+        bt1_ht: bt1_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            flavor = "tap-preferred";
+            bindings = <&bt1_clear>, <&bt BT_SEL 1>;
+        };
+        bt2_ht: bt2_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            flavor = "tap-preferred";
+            bindings = <&bt2_clear>, <&bt BT_SEL 2>;
+        };
+    };
+
     // Position order = row-major, left half first (0-27) then
     // right half (28-55), matching the matrix transform in
     // neu_tippen.dtsi.
@@ -18,10 +63,10 @@
 &kp ESC   &kp TAB   &kp Q &kp W &kp E &kp R &kp T
 &kp DEL   &kp CAPS  &kp A &kp S &kp D &kp F &kp G
 &kp GRAVE &kp LSHFT &kp Z &kp X &kp C &kp V &kp B
-&kp BACKSLASH   &kp LCTRL &mo 1 &none &kp LGUI &kp LALT &kp SPACE
+&kp BACKSLASH &kp LCTRL &mo 1 &none &kp LGUI &kp LALT &kp SPACE
 
 // ---- Right half ----
-&kp Y     &kp U &kp I     &kp O    &kp P    &none    &kp BSPC
+&kp Y     &kp U &kp I     &kp O    &kp P    &kp MINUS    &kp BSPC
 &kp H     &kp J &kp K     &kp L    &kp SEMI &kp SQT  &kp RET
 &kp N     &kp M &kp COMMA &kp DOT  &kp FSLH &kp UP   &kp RSHFT
 &kp SPACE &kp EQUAL &kp LBKT &kp RBKT  &kp LEFT &kp DOWN &kp RIGHT
@@ -33,7 +78,7 @@
 // ---- Left half: F-keys, media keys on the spare column ----
 &kp ESC      &kp N1 &kp N2 &kp N3 &kp N4  &kp N5  &kp N6
 &kp C_VOL_UP &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6
-&kp C_MUTE   &kp LSHFT  &to 0  &to 2  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2
+&kp C_MUTE   &kp LSHFT  &to 0  &to 2  &bt0_ht &bt1_ht &bt2_ht
 &kp C_VOL_DN &none    &none    &none    &none    &none     &none
 
 // ---- Right half: numpad row / F-keys / brightness+screenshot ----
@@ -50,10 +95,10 @@
 &kp ESC   &kp TAB   &kp Q &kp W &kp E &kp R &kp T
 &kp DEL   &kp CAPS  &kp A &kp S &kp D &kp F &kp G
 &kp GRAVE &kp LSHFT &kp Z &kp X &kp C &kp V &kp B
-&kp BACKSLASH   &kp LCTRL &mo 1 &none &kp LALT &kp LGUI &kp SPACE
+&kp BACKSLASH     &kp LCTRL &mo 1 &none &kp LALT &kp LGUI &kp SPACE
 
 // ---- Right half ----
-&kp Y     &kp U &kp I     &kp O    &kp P    &none    &kp BSPC
+&kp Y     &kp U &kp I     &kp O    &kp P    &kp MINUS    &kp BSPC
 &kp H     &kp J &kp K     &kp L    &kp SEMI &kp SQT  &kp RET
 &kp N     &kp M &kp COMMA &kp DOT  &kp FSLH &kp UP   &kp RSHFT
 &kp SPACE &kp EQUAL &kp LBKT &kp RBKT  &kp LEFT &kp DOWN &kp RIGHT
