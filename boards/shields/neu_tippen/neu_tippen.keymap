@@ -40,7 +40,7 @@
 &kp AMPS &kp ASTRK  &kp LPAR  &kp RPAR  &kp N7 &kp N8 &kp N9
 &kp F7 &kp F8 &kp F9  &kp KP_PLUS &kp N4 &kp N5 &kp N6
 &kp F10  &kp F11   &kp F12  &kp KP_MINUS &kp N1 &kp N2 &kp N3
-&none &bt BT_CLR  &none  &none KP_DIVIDE &kp N0 &kp KP_DOT &kp KP_ENTER
+&none &bt BT_CLR  &none  &kp KP_DIVIDE &kp N0 &kp KP_DOT &kp KP_ENTER
             >;
         };
 
