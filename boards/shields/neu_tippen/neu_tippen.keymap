@@ -23,7 +23,7 @@
 // ---- Right half ----
 &kp Y     &kp U &kp I     &kp O    &kp P    &kp MINUS    &kp BSPC
 &kp H     &kp J &kp K     &kp L    &kp SEMI &kp SQT  &kp RET
-&kp N     &kp M &kp COMMA &kp DOT  &kp FSLH &kp UP   &kp RSHFT
+&kp N     &kp M &kp COMMA &kp DOT  &kp FSLH &kp UP   &kp PSCRN
 &kp SPACE &kp EQUAL &kp LBKT &kp RBKT  &kp LEFT &kp DOWN &kp RIGHT
             >;
         };
